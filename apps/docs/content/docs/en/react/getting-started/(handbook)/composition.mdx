@@ -62,7 +62,7 @@ import Link from 'next/link';
 
 **Working with Compound Components**
 
-When using a custom root element instead of HeroUI's Root component, child components cannot access context slots. You can manually pass `className` to child components using variant functions or BEM classes:
+When using a custom root element instead of HeroUI's Root component, child components cannot access context slots. The same applies when the root is omitted entirely (for example, rendering `Popover.Content` without `<Popover>`): the component still works, but its default styles are not applied. You can manually pass `className` to child components using variant functions or BEM classes:
 
 ```tsx
 import { Link } from '@heroui/react';

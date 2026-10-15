@@ -2085,6 +2085,10 @@ export const demos: Record<string, DemoItem> = {
     loader: () => import("./popover/custom-render-function").then((m) => m.CustomRenderFunction),
     file: "cn/popover/custom-render-function.tsx",
   },
+  "popover-custom-anchor": {
+    loader: () => import("./popover/custom-anchor").then((m) => m.PopoverCustomAnchor),
+    file: "cn/popover/custom-anchor.tsx",
+  },
   // Label demos
   "label-basic": {
     loader: () => import("./label/basic").then((m) => m.Basic),

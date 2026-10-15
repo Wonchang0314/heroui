@@ -41,6 +41,10 @@ export default () => (
 )
 ```
 
+<Callout type="warning">
+  `Popover.Content` 必须在 `<Popover>` 内部渲染。根组件通过 context 提供样式 slot；缺少根组件时，Popover 仍能正常打开和定位，但不会带有任何样式（没有背景、圆角和阴影）。
+</Callout>
+
 ### 带箭头
 
 <ComponentPreview
@@ -60,6 +64,14 @@ export default () => (
 />
 
 <RelatedComponents component="popover" />
+
+### 自定义锚点
+
+在 `Popover.Content` 上使用 `triggerRef`，可以让 Popover 相对于触发器之外的元素进行定位。请保留 `<Popover>` 根组件，并通过 `isOpen` 控制其显示。
+
+<ComponentPreview
+  name="popover-custom-anchor"
+/>
 
 ### 自定义渲染函数
 
@@ -152,8 +164,12 @@ Popover 使用以下 CSS 类（[查看源码样式](https://github.com/heroui-in
 | `placement` | `"top" \| "bottom" \| "left" \| "right"` (及变体) | `"bottom"` | Popover 的位置 |
 | `offset` | `number` | `8` | 与触发元素的距离 |
 | `shouldFlip` | `boolean` | `true` | 是否允许 Popover 改变方向以适配空间 |
+| `triggerRef` | `RefObject<Element \| null>` | - | Popover 定位所参照的元素，默认为 `Popover.Trigger` |
+| `isNonModal` | `boolean` | `false` | Popover 是否为非模态（不阻止与外部内容的交互） |
 | `className` | `string` | - | 额外的 CSS 类名 |
 | `render` | `DOMRenderFunction<keyof React.JSX.IntrinsicElements, PopoverRenderProps>` | - | 通过自定义渲染函数覆盖默认的 DOM 元素。 |
+
+`Popover.Content` 继承 React Aria [Popover](https://react-spectrum.adobe.com/react-aria/Popover.html) 组件的其他所有 props。
 
 ### Popover.Dialog Props
 

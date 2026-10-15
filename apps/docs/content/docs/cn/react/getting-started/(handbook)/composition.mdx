@@ -62,7 +62,7 @@ import Link from 'next/link';
 
 **配合复合组件使用**
 
-当使用自定义根元素而非 HeroUI 的 Root 组件时，子组件无法访问 context slot。你可以使用变体函数或 BEM 类，手动将 `className` 传递给子组件：
+当使用自定义根元素而非 HeroUI 的 Root 组件时，子组件无法访问 context slot。完全省略根组件时也是如此（例如在没有 `<Popover>` 的情况下渲染 `Popover.Content`）：组件仍可正常工作，但不会应用默认样式。你可以使用变体函数或 BEM 类，手动将 `className` 传递给子组件：
 
 ```tsx
 import { Link } from '@heroui/react';

@@ -41,6 +41,10 @@ export default () => (
 )
 ```
 
+<Callout type="warning">
+  `Popover.Content` must be rendered inside `<Popover>`. The root provides the style slots through context; without it the popover still opens and positions correctly but renders unstyled (no background, radius or shadow).
+</Callout>
+
 ### With Arrow
 
 <ComponentPreview
@@ -60,6 +64,14 @@ export default () => (
 />
 
 <RelatedComponents component="popover" />
+
+### Custom Anchor
+
+Use `triggerRef` on `Popover.Content` to position the popover relative to an element other than its trigger. Keep the `<Popover>` root and control it with `isOpen`.
+
+<ComponentPreview
+  name="popover-custom-anchor"
+/>
 
 ### Custom Render Function
 
@@ -152,8 +164,12 @@ The component supports animation states:
 | `placement` | `"top" \| "bottom" \| "left" \| "right"` (and variants) | `"bottom"` | Placement of the popover |
 | `offset` | `number` | `8` | Distance from the trigger element |
 | `shouldFlip` | `boolean` | `true` | Whether popover can change orientation to fit |
+| `triggerRef` | `RefObject<Element \| null>` | - | Element to position the popover relative to. Defaults to the `Popover.Trigger` |
+| `isNonModal` | `boolean` | `false` | Whether the popover is non-modal (does not block interaction outside it) |
 | `className` | `string` | - | Additional CSS classes |
 | `render` | `DOMRenderFunction<keyof React.JSX.IntrinsicElements, PopoverRenderProps>` | - | Overrides the default DOM element with a custom render function.|
+
+`Popover.Content` inherits all other props from React Aria's [Popover](https://react-spectrum.adobe.com/react-aria/Popover.html) component.
 
 ### Popover.Dialog Props
 
